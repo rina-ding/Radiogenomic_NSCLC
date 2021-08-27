@@ -102,6 +102,6 @@ colnames(radiogenomic_result_p_corrected) = unlist(enrichment_scores[, 1])
 rownames(radiogenomic_result_p) = colnames(radiomic)
 colnames(radiogenomic_result_p) = unlist(enrichment_scores[, 1])
 # Margin Order: top, right, bottom, left
-ggcorrplot(as.matrix(radiogenomic_result_corr), p.mat = as.matrix(radiogenomic_result_p), insig = "blank", lab = TRUE, lab_size = 2.5) + theme(axis.text.y=element_text(size=9), axis.text.x=element_text(size=9))
+ggcorrplot(as.matrix(radiogenomic_result_corr), p.mat = as.matrix(radiogenomic_result_p_corrected), insig = "blank", lab = TRUE, lab_size = 2.5) + theme(axis.text.y=element_text(size=9), axis.text.x=element_text(size=9))
 ggsave(filename = "/Users/rinading/Desktop/luad.png", device='tiff', dpi=700, bg = "#FFFFFF")
 
