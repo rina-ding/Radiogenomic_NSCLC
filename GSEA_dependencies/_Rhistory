@@ -1,0 +1,512 @@
+max(reqd_data)
+min(reqd_data)
+reqd_data <- sapply(reqd_data, function(x) gsub("-Inf",0, x))
+View(reqd_data)
+min(reqd_data)
+reqd_data <- cbind(colnames(expr_data),reqd_data)
+View(reqd_data)
+colnames(reqd_data)[1] <- "Samples_Name"
+class(reqd_data[,1])
+class(reqd_data[,2])
+class(reqd_data[,3])
+class(reqd_data[,4])
+reqd_data <- as.data.frame(data.matrix(t(expr_data[Sig_genes,])),stringsAsFactors = F)
+reqd_data <- sapply(reqd_data, function(x) gsub("-Inf",0, x))
+reqd_data <- cbind.data.frame(colnames(expr_data),reqd_data)
+class(reqd_data[,2])
+class(reqd_data[,1])
+View(reqd_data)
+class(reqd_data[,1])
+reqd_data <- as.data.frame(data.matrix(t(expr_data[Sig_genes,])),stringsAsFactors = F)
+reqd_data <- sapply(reqd_data, function(x) gsub("-Inf",0, x))
+View(reqd_data)
+reqd_data <- cbind.data.frame(colnames(expr_data),reqd_data)
+colnames(reqd_data)[1] <- "Samples_Name"
+data_plot <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts[,c(1,4)]),by="Samples_Name",type="inner",match="all")
+data_plot2 <- melt(data_plot,id.vars="Samples_Name")
+View(data_plot2)
+View(data_plot)
+View(reqd_data)
+i <- sapply(reqd_data, is.factor)
+reqd_data[i] <- lapply(reqd_data[i], as.character)
+data_plot <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts[,c(1,4)]),by="Samples_Name",type="inner",match="all")
+View(data_plot2)
+View(data_plot)
+View(reqd_data)
+class(reqd_data)
+class(reqd_data[,1])
+i = 1
+i = 2
+data_plot <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts[,c(1,4)]),by="Samples_Name",type="inner",match="all")
+View(data_plot)
+data_plot2 <- melt(data_plot,id.vars="Samples_Name")
+View(data_plot2)
+class(data_plot2[,3])
+data_plot2$value <- as.numeric(data_plot2$value)
+View(data_plot2)
+ggplot(data_plot2,aes(x=variable,y=value,fill=factor(Samples_Name)))+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",
+breaks=c(1, 2),
+labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+ylab("Exp")
+ggplot(data_plot2,aes(x=variable,y=value,fill=factor(variable)))+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",
+breaks=c(1, 2),
+labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+ylab("Exp")
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",
+breaks=c(1, 2),
+labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+ylab("Exp")
+i = 3
+data_plot <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts[,c(1,4)]),by="Samples_Name",type="inner",match="all")
+data_plot2 <- melt(data_plot,id.vars="Samples_Name")
+data_plot2$value <- as.numeric(data_plot2$value)
+#data_plot2 <- as.data.frame(sapply(data_plot2, function(x) gsub("-Inf",0, x)))
+#data_plot2[,'value'][is.infinite(data_plot2[,'value'])] <- 0
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",
+breaks=c(1, 2),
+labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+ylab("Exp")
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+theme_bw()
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+View(reqd_data)
+i = 3
+data_plot <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts[,c(1,4)]),by="Samples_Name",type="inner",match="all")
+data_plot2 <- melt(data_plot,id.vars="Samples_Name")
+data_plot2$value <- as.numeric(data_plot2$value)
+#data_plot2 <- as.data.frame(sapply(data_plot2, function(x) gsub("-Inf",0, x)))
+#data_plot2[,'value'][is.infinite(data_plot2[,'value'])] <- 0
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+View(o.fpm)
+estimateScore("/Projects/Single_cell/SingleCell_eGFP_TOM_for_estimate_SCDE_expression_Estimate.gct", "/Projects/Single_cell/SingleCell_eGFP_TOM_for_estimate_SCDE_expression_Estimate_scores.gct", platform="affymetrix")
+EGFP_TDTOM_read_counts_Lung <- read.delim("/Projects/Single_cell/EGFP_TDTOM_READ_COUNT_LUNG_1000.txt.txt",sep="\t",header=T)
+EGFP_TDTOM_read_counts_Lung <- read.delim("/Projects/Single_cell/EGFP_TDTOM_READ_COUNT_LUNG_1000.txt",sep="\t",header=T)
+View(EGFP_TDTOM_read_counts_Lung)
+EGFP_TDTOM_read_counts_Tumor <- read.delim("/Projects/Single_cell/EGFP_TDTOM_READ_COUNT_Tumor_1000.txt",sep="\t",header=T)
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts[,c(1,3)]),by="Samples_Name",type="right",match="all")
+View(data_plot_Lung)
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+View(data_plot_Lung)
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+View(data_plot_Lung2)
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+View(data_plot_Tumor2)
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+View(data_plot)
+data_plot2$value <- as.numeric(data_plot2$value)
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+data_plot <- data_plot[order(data_plot[,'value']),]
+View(data_plot)
+data_plot <- data_plot[order(-data_plot[,'value']),]
+data_plot <- data_plot[-order(data_plot[,'value']),]
+View(data_plot)
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+View(data_plot)
+data_plot <- data_plot[order(-data_plot[,'value'],data_plot[,'Samples_Name']),]
+library(plyr)
+View(data_plot)
+data_plot <- arrange(data_plot,desc(value),Samples_Name)
+data_plot2$value <- as.numeric(data_plot2$value)
+data_plot <- arrange(data_plot,desc(value),Samples_Name)
+data_plot <- data_plot[with(data_plot,order(-value,Samples_Name),]
+data_plot2 <- data_plot[with(data_plot,order(-value,Samples_Name)),]
+data_plot2 <- data_plot[with(data_plot,order(value,Samples_Name)),]
+View(data_plot2)
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+data_plot$value <- as.numeric(data_plot$value)
+View(data_plot)
+ggplot(data_plot,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+EGFP_TDTOM_read_counts_Lung <- read.delim("/Projects/Single_cell/EGFP_TDTOM_READ_COUNT_LUNG_1000.txt",sep="\t",header=T)
+EGFP_TDTOM_read_counts_Tumor <- read.delim("/Projects/Single_cell/EGFP_TDTOM_READ_COUNT_Tumor_1000.txt",sep="\t",header=T)
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+View(data_plot_Lung2)
+View(EGFP_TDTOM_read_counts_Lung)
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3,4)]),by="Samples_Name",type="right",match="all")
+View(data_plot_Lung)
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+View(data_plot_Lung2)
+View(data_plot_Lung)
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+View(data_plot_Lung2)
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+View(data_plot_Lung)
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+View(data_plot_Lung2)
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+View(data_plot)
+data_plot$value <- as.numeric(data_plot$value)
+ggplot(data_plot,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+View(data_plot)
+EGFP_TDTOM_Sample_Rank <- read.delim("/Projects/Single_cell/EGFP_TDTOM_READ_COUNT_1000.txt",sep="\t",header=T)
+View(EGFP_TDTOM_Sample_Rank)
+data_plot2 <- join(data_plot,EGFP_TDTOM_Sample_Rank,by="Samples_Name",type="inner",match="all")
+View(data_plot2)
+data_plot2 <- data_plot2[order(data_plot2[,'Rank']),]
+View(data_plot2)
+ggplot(data_plot2,aes(x=Samples_Name,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+unique(data_plot2[,'Samples_Name'])
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))
+View(reqd_data)
+colnames(reqd_data[,i])
+View(reqd_data)
+colnames(reqd_data[,i])
+colnames(reqd_data[,1])
+colnames(reqd_data[,2])
+colnames(reqd_data)[1]
+colnames(reqd_data)[2]
+colnames(reqd_data)[i]
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 40))
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge")+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 20))
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge",show.legend = T)+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 20))
+View(reqd_data)
+i = 2
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+#data_plot_Lung2 <- data_plot_Lung2[order()]
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+data_plot$value <- as.numeric(data_plot$value)
+data_plot2 <- join(data_plot,EGFP_TDTOM_Sample_Rank,by="Samples_Name",type="inner",match="all")
+data_plot2 <- data_plot2[order(data_plot2[,'Rank']),]
+#data_plot2 <- data_plot[with(data_plot,order(value,Samples_Name)),]
+#data_plot2 <- as.data.frame(sapply(data_plot2, function(x) gsub("-Inf",0, x)))
+#data_plot2[,'value'][is.infinite(data_plot2[,'value'])] <- 0
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge",show.legend = T)+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 20))
+I = 3
+i = 3
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+#data_plot_Lung2 <- data_plot_Lung2[order()]
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+data_plot$value <- as.numeric(data_plot$value)
+data_plot2 <- join(data_plot,EGFP_TDTOM_Sample_Rank,by="Samples_Name",type="inner",match="all")
+data_plot2 <- data_plot2[order(data_plot2[,'Rank']),]
+#data_plot2 <- data_plot[with(data_plot,order(value,Samples_Name)),]
+#data_plot2 <- as.data.frame(sapply(data_plot2, function(x) gsub("-Inf",0, x)))
+#data_plot2[,'value'][is.infinite(data_plot2[,'value'])] <- 0
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge",show.legend = T)+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 20))
+colnames(reqd_data)
+View(colnames(reqd_data))
+i = 35
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+#data_plot_Lung2 <- data_plot_Lung2[order()]
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+data_plot$value <- as.numeric(data_plot$value)
+data_plot2 <- join(data_plot,EGFP_TDTOM_Sample_Rank,by="Samples_Name",type="inner",match="all")
+data_plot2 <- data_plot2[order(data_plot2[,'Rank']),]
+#data_plot2 <- data_plot[with(data_plot,order(value,Samples_Name)),]
+#data_plot2 <- as.data.frame(sapply(data_plot2, function(x) gsub("-Inf",0, x)))
+#data_plot2[,'value'][is.infinite(data_plot2[,'value'])] <- 0
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge",show.legend = T)+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 20))
+I = 55
+i = 55
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+#data_plot_Lung2 <- data_plot_Lung2[order()]
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+data_plot$value <- as.numeric(data_plot$value)
+data_plot2 <- join(data_plot,EGFP_TDTOM_Sample_Rank,by="Samples_Name",type="inner",match="all")
+data_plot2 <- data_plot2[order(data_plot2[,'Rank']),]
+#data_plot2 <- data_plot[with(data_plot,order(value,Samples_Name)),]
+#data_plot2 <- as.data.frame(sapply(data_plot2, function(x) gsub("-Inf",0, x)))
+#data_plot2[,'value'][is.infinite(data_plot2[,'value'])] <- 0
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge",show.legend = T)+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 20))
+i = 42
+data_plot_Lung <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Lung[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Lung2 <- melt(data_plot_Lung,id.vars="Samples_Name")
+#data_plot_Lung2 <- data_plot_Lung2[order()]
+data_plot_Tumor <- join(as.data.frame(reqd_data[,c(1,i)]),as.data.frame(EGFP_TDTOM_read_counts_Tumor[,c(1,3)]),by="Samples_Name",type="right",match="all")
+data_plot_Tumor2 <- melt(data_plot_Tumor,id.vars="Samples_Name")
+data_plot <- rbind(data_plot_Lung2,data_plot_Tumor2)
+data_plot$value <- as.numeric(data_plot$value)
+data_plot2 <- join(data_plot,EGFP_TDTOM_Sample_Rank,by="Samples_Name",type="inner",match="all")
+data_plot2 <- data_plot2[order(data_plot2[,'Rank']),]
+#data_plot2 <- data_plot[with(data_plot,order(value,Samples_Name)),]
+#data_plot2 <- as.data.frame(sapply(data_plot2, function(x) gsub("-Inf",0, x)))
+#data_plot2[,'value'][is.infinite(data_plot2[,'value'])] <- 0
+ggplot(data_plot2,aes(x=Rank,y=value,fill=factor(variable)))+
+theme_bw()+
+geom_bar(stat="identity",position="dodge",show.legend = T)+
+scale_fill_discrete(name="Samples_Name",breaks=c(1, 2),labels=c("exp_val", "EgTd_RC"))+
+xlab("Samples")+
+ylab("Exp")+
+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+scale_x_discrete(breaks=c(1:53),
+labels=unique(data_plot2[,'Samples_Name']))+
+ggtitle(colnames(reqd_data)[i]) +
+theme(plot.title = element_text(lineheight=.8, face="bold"))+
+geom_vline(aes(xintercept = 20))
+rm(list=ls())
+library(biomaRt)
+#require(estimate)
+require(marray)
+require(survival)
+require(stringr)
+#require(gplots)
+require(marray)
+#require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+library(permute)
+library(IRanges)
+library("GenomicRanges")
+library(stringr)
+require("DESeq2")
+library(DESeq);
+library(statmod);
+library(pcaMethods);
+library(fastICA)
+epsilon = 1e-05
+#require(estimate)
+rm(list=ls())
+epsilon = 1e-05
+require(estimate)
+require(qpcR)
+library(reshape2)
+library(plyr)
+############################Data-Preperation########################################################
+ensembl = useEnsembl(biomart="ensembl",dataset="hsapiens_gene_ensembl")
+genes <- c("AKT2","BCL2L2","CCNE1","CSMD1","ERBB2","GRB2","KIT","MDM2","MYCL1","PARK2","PTPRD","TERT","YAP1","AKT3","BIRC2","CDK4","DCC","FADD","HMGA2","KRAS","MDM4","MYCN","PAX9","RB1","TP53","YWHAZ","APC","BRCA1","CDK6","DCUN1D1","FGFR1","IGF1R","MAGI3","MELK","NCOA3","PDE4D","REG4","TP73","ZNF217","AR","BRCA2","CDKN1A","DYRK2","FHIT","IRS2","MAP2K4","MET","NF1","PDGFRA","REL","TRAF2","AURKA","C8orf4","CDKN2A","E2F3","FOXO1","ITGB4","MAP3K5","MITF","NKX2-1","PIK3CA","RPS6KB1","VEGFA","BBC3","CCND1","CDKN2C","EEF1A2","GAB2","JUN","MAPK7","MYB","NKX2-8","PRKCI","SHH","WHSC1L1","BCL2L1","CCND2","CRKL","EGFR","GPC5","KDR","MCL1","MYC","ORAOV1","PTEN","SKP2","WT1")
+rm(list=ls())
+library(biomaRt)
+#require(estimate)
+require(marray)
+require(survival)
+require(stringr)
+#require(gplots)
+require(marray)
+#require(ConsensusClusterPlus)
+require(plyr)
+#require(ggplot2)
+require(multtest)
+library(permute)
+library(IRanges)
+library("GenomicRanges")
+library(stringr)
+require("DESeq2")
+library(DESeq);
+library(statmod);
+library(pcaMethods);
+library(fastICA)
+epsilon = 1e-05
+require(estimate)
+require(data.table)
+require(reshape)
+BRC_MUT_ZSCORES <- read.delim("/Projects/axr582/tcga_mutation_data/BRC_MUT_Zscores.txt",sep="\t",header=T)
+BRC_LOW_nonMUT_highMut_Parent_GENES <-as.character(BRC_MUT_ZSCORES[which(BRC_MUT_ZSCORES[,'InCon_Score_NoMut'] <=0.01 & BRC_MUT_ZSCORES[,'InCon_Score_MUT']>=0.1),'Parent_Genes'])
+BRC_Parent_Genes <- as.data.frame(data.table(BRC_LOW_nonMUT_highMut_Parent_GENES))
+colnames(BRC_Parent_Genes) <- "Parent_Genes"
+BRC_Parent_Genes <- as.character(c(BRC_Parent_Genes$Parent_Genes,sep=""))
+BRC_Parent_Genes <-as.character(do.call(paste,as.list(BRC_Parent_Genes)))
+BRC_Parent_Genes <- as.data.frame(unique(unlist(strsplit(BRC_Parent_Genes,split = ","))))
+BRC_Parent_Genes <- as.data.frame(sapply(BRC_Parent_Genes,gsub,pattern=" ",replacement=""))
+colnames(BRC_Parent_Genes) <- "parent_name"
+BRC_Parent_Genes <- unique(BRC_Parent_Genes)
+i <- sapply(BRC_Parent_Genes, is.factor)
+BRC_Parent_Genes[i] <- lapply(BRC_Parent_Genes[i], as.character)
+View(BRC_Parent_Genes)
+rm(list=ls())
+CRC_MUT_ZSCORES <- read.delim("/Projects/axr582/tcga_mutation_data/CRC_MUT_Zscores.txt",sep="\t",header=T)
+CRC_LOW_nonMUT_highMut_Parent_GENES <-as.character(CRC_MUT_ZSCORES[which(CRC_MUT_ZSCORES[,'InCon_Score_NoMut'] <=0.01 & CRC_MUT_ZSCORES[,'InCon_Score_MUT']>=0.1),'Parent_Genes'])
+#colnames(CRC_LOW_nonMUT_highMut_Parent_GENES) <- "Parent_Genes"
+CRC_Parent_Genes <- as.data.frame(data.table(CRC_LOW_nonMUT_highMut_Parent_GENES))
+colnames(CRC_Parent_Genes) <- "Parent_Genes"
+CRC_Parent_Genes <- as.character(c(CRC_Parent_Genes$Parent_Genes,sep=""))
+CRC_Parent_Genes <-as.character(do.call(paste,as.list(CRC_Parent_Genes)))
+CRC_Parent_Genes <- as.data.frame(unique(unlist(strsplit(CRC_Parent_Genes,split = ","))))
+CRC_Parent_Genes <- as.data.frame(sapply(CRC_Parent_Genes,gsub,pattern=" ",replacement=""))
+colnames(CRC_Parent_Genes) <- "parent_name"
+CRC_Parent_Genes <- unique(CRC_Parent_Genes)
+i <- sapply(CRC_Parent_Genes, is.factor)
+CRC_Parent_Genes[i] <- lapply(CRC_Parent_Genes[i], as.character)

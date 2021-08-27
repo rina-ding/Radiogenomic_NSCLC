@@ -1,0 +1,512 @@
+4623.743417
+2599.743701
+3730.519629
+3286.407677
+4026.370615
+2704.835198
+)
+new <-(3304.261928,
+2812.073147,
+3953.62572,
+2069.283361,
+2274.664519,
+4625.189106,
+3014.236317,
+1937.223596,
+3666.226913,
+2607.47813,
+2039.318205,
+4388.635598,
+3825.225413,
+4647.412743,
+3140.173136,
+3910.692519,
+3390.349978,
+4749.703326,
+1752.025416,
+3851.359837,
+4691.671012,
+3774.435049,
+1151.194437,
+4130.984296,
+2613.090496,
+3641.577627,
+3616.740764,
+3268.877059,
+4728.482687,
+4873.328502,
+4171.532946,
+4536.650779,
+4634.985398,
+4670.3081,
+4373.834225,
+4735.610641,
+1666.499469,
+2530.926692,
+4904.097918,
+3940.491296,
+4666.03005,
+4101.215226,
+3601.06495,
+3719.638358,
+3538.800942,
+4750.015299,
+1370.3218,
+3770.394536,
+3736.031111,
+3506.264031,
+1529.02436,
+2092.324408,
+4114.006922,
+3128.865855,
+5019.094481,
+3450.050571,
+3968.919917,
+3316.714925,
+4363.821488,
+3789.282648,
+3740.903626,
+4494.614633,
+3924.326898,
+4241.838489,
+4780.40321,
+3292.314064,
+4284.52734,
+3920.268742,
+1909.30326,
+246.1151018,
+3455.788882,
+3964.860901,
+4498.449147,
+4576.216287,
+3968.18785,
+4735.873214,
+3400.131729,
+3791.983153,
+3438.028508,
+4221.437624,
+3347.17947,
+4992.45841,
+3247.234347,
+2846.5705,
+3928.47608,
+2556.941518,
+4199.789123,
+1817.214328,
+3753.977336,
+3346.818311,
+3097.030425,
+4623.743417,
+2599.743701,
+3730.519629,
+3286.407677,
+4026.370615,
+2704.835198,
+)
+new <-(3304.261928,2812.073147,3953.62572,2069.283361)
+new <- (3304.261928,2812.073147,3953.62572,2069.283361)
+rm(list=ls())
+library(corrplot)
+clear
+new <- (3304.261928,2812.073147,3953.62572,2069.283361)
+new <- (3304.261928 2812.073147 3953.62572 2069.283361)
+library(readxl)
+data <- read_excel("N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/data.xlsx")
+View(data)
+M <- cor(data)
+View(M)
+corrplot(M, method="circle")
+View(M)
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+source('/Projects/Pallavi/ssGSEAProjection/ssGSEAProjection.R')
+ov_expr_data_mat=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ov_expr_data_mat.mat");
+ov_expr_data=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ov_expr_data_mat.mat");
+ov_expr_data_mat= t(ov_expr_data$dataAll)
+ov_expr_data_mat <- ov_expr_data_mat + epsilon
+ov_expr_data_mat <- log2(ov_expr_data_mat)
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+source('/Projects/Pallavi/ssGSEAProjection/ssGSEAProjection.R')
+source('/Projects/Allison_Hirukawa/SSGSEA/ssGSEAProjection/ssGSEAProjection.Library.R')
+source('/Projects/Allison_Hirukawa/SSGSEA/ssGSEAProjection/common.R')
+d <- dist(FLAIR)
+x <- hclust(d)
+cl_dissimilarity(x, d, "cophenetic")
+cl_dissimilarity(x, d, "gamma")
+rm(list=ls())
+IDH=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/WHO2016/code/idh_combined.mat",fixNames=FALSE);  #name of file
+FLAIR= IDH$T1_label1   # R assumes there may be multiple variables in
+#the matfile so you need to "reference the variable name.
+library("clues", lib.loc="D:/R-3.3.0/library")
+library("cluster", lib.loc="D:/R-3.3.0/library")
+d <- dist(FLAIR)
+x <- hclust(d)
+cl_dissimilarity(x, d, "cophenetic")
+cl_dissimilarity(x, d, "gamma")
+library("biclust", lib.loc="D:/R-3.3.0/library")
+library("mclust", lib.loc="D:/R-3.3.0/library")
+cl_dissimilarity(x, d, "cophenetic")
+cl_dissimilarity(x, d, "gamma")
+rm(list=ls())
+IDH=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/WHO2016/code/idh_combined.mat",fixNames=FALSE);  #name of file
+FLAIR= IDH$T1_label1   # R assumes there may be multiple variables in
+#the matfile so you need to "reference the variable name.
+title="T1_all"
+resultsFLAIR = ConsensusClusterPlus::ConsensusClusterPlus(t(FLAIR),maxK=12,reps=1000,pItem=.80,pFeature=.60, title=title,clusterAlg="hc",distance="euclidean",writeTable=TRUE,plot="png");
+rm(list=ls())
+IDH=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/WHO2016/code/idh_combined.mat",fixNames=FALSE);  #name of file
+FLAIR= IDH$T1_label1   # R assumes there may be multiple variables in
+#the matfile so
+library("mclust", lib.loc="D:/R-3.3.0/library")
+mcl.model <- Mclust(FLAIR, 3)
+plot(mcl.model, what = "classification", main = "Mclust Classification")
+par("mar")
+par(mar=c(1,1,1,1))
+plot(mcl.model, what = "classification", main = "Mclust Classification")
+plot(mcl.model, what = "classification", main = "Mclust Classification")
+graphics.off()
+plot(mcl.model, what = "classification", main = "Mclust Classification")
+par(mar=c(10,10,10,10))
+plot(mcl.model, what = "classification", main = "Mclust Classification")
+par("mar")
+par(mar=c(5,5,5,5))
+plot(mcl.model, what = "classification", main = "Mclust Classification")
+dev.off()
+graphics.off() ;par("mar") ;par(mar=c(1,1,1,1))
+par("mar")
+plot(mcl.model, what = "classification", main = "Mclust Classification")
+p=plot(mcl.model, what = "classification", main = "Mclust Classification")
+p=plot(mcl.model, what = "classification", main = "Mclust Classification",plot=FALSE)
+plot(mcl.model, what = "classification", main = "Mclust Classification",plot=FALSE)
+par(new=TRUE)
+library("kernlab", lib.loc="D:/R-3.3.0/library")
+library("mlbench", lib.loc="D:/R-3.3.0/library")
+library(kernlab)
+#spectral embedding
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=4)            # estimated classes (x)
+points(IDH$grountruth, col=obj$classes, pch=5)
+#spectral embedding
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=4)            # estimated classes (x)
+points(FLAIR, IDH$grountruth, pch=5) # true classes (<>)
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=18)            # estimated classes (x)
+points(FLAIR, IDH$grountruth, pch=21) # true classes (<>)
+#spectral embedding
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=2)            # estimated classes (x)
+points(FLAIR, IDH$grountruth, pch=21) # true classes (<>)
+#spectral embedding
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=2)            # estimated classes (x)
+points(FLAIR, IDH$grountruth, pch=11) # true classes (<>)
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=2)
+points(FLAIR, IDH$grountruth, pch=11) # true classes (<>)
+points(FLAIR, IDH$grountruth, pch=19) # true classes (<>)
+#spectral embedding
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=2)            # estimated classes (x)
+points(FLAIR, IDH$grountruth, pch=19) # true classes (<>)
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=9)            # estimated classes (x)
+points(FLAIR, IDH$grountruth, pch=19) # true classes (<>)
+#spectral embedding
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=9)
+library(kernlab)
+sc <- specc(FLAIR, centers=2)
+plot(FLAIR, col=sc, pch=8)            # estimated classes (x)
+points(FLAIR, IDH$grountruth, pch=20) # true classes (<>)
+rm(list=ls())
+rm(list=ls())
+## Find Hazard Ratios and Concordance Index
+## store the current directory
+initial.dir<-getwd()
+setwd("N:/BrainTumors/LGG_GBM/JournalPapers/Kara/feats.txt")
+setwd("N:/BrainTumors/LGG_GBM/JournalPapers/Kara/feats.txt")   ##Change this to wherever you want
+library("glmnet", lib.loc="D:/R-3.3.0/library")
+install.packages("glmnet", repos = "http://cran.us.r-project.org")
+install.packages("glmnet", repos = "http://cran.us.r-project.org")
+library("glmnet", lib.loc="D:/R-3.3.0/library")
+load("QuickStartExample.RData")
+rm(list=ls())
+#install packages
+install.packages(pkgs = c("ggplot2","reshape2","plyr","Cairo"),
+dependencies = T)
+#load packages
+library(ggplot2) #ggplot() for plotting
+library(reshape2) #melt(), dcast() for data reformatting
+library(plyr) #ddply() for data reformatting
+library(Cairo) #better aliasing of output images
+m <- read.csv("N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/Microarray_data/pos_neg.csv",header = T,stringsAsFactors = F,skip = 2)
+#inspect data
+head(m)
+str(m)
+View(m)
+m <- read.csv("N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/Microarray_data/pos_neg.csv",header = T,stringsAsFactors = F,skip = 2)
+#inspect data
+str(m)
+View(m)
+p <- ggplot(m,aes(x=Year,y=State,fill=Incidence))+
+geom_tile()
+p <- ggplot(m)
+ggsave(filename="basic.png",plot = p)
+rm(list=ls())
+data(EC)
+# Get a glimpse of the data format of the results of the functional analysis...
+head(EC$david)
+library(GOplot)
+install.packages("GOplot")
+library("GOplot", lib.loc="D:/R-3.3.0/library")
+data(EC)
+head(EC$david)
+GOBubble(circ, labels = 3)
+circ <- circle_dat(EC$david, EC$genelist)
+View(circ)
+circ <- circle_dat(EC$david, EC$genelist)
+GOBubble(circ, labels = 3)
+hord <- chord_dat(data = circ, genes = EC$genes, process = EC$process)
+GOChord(chord, space = 0.02, gene.order = 'logFC', gene.space = 0.25, gene.size = 5)
+chord <- chord_dat(data = circ, genes = EC$genes, process = EC$process)
+GOChord(chord, space = 0.02, gene.order = 'logFC', gene.space = 0.25, gene.size = 5)
+View(chord)
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+install.packages("EstimateGroupNetwork")
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+install.packages("estimate")
+library(utils)
+rforge <- "http://r-forge.r-project.org"
+install.packages("estimate", repos=rforge, dependencies=TRUE)
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+setwd('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.Library.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/common.R')
+ov_expr_data=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/data.mat");
+ov_expr_data_mat= t(data$data)
+ov_expr_data_mat= t(data$data)
+data=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/data.mat");
+ov_expr_data_mat= t(data$data)
+View(ov_expr_data_mat)
+ov_expr_data_mat= (data$data)
+View(ov_expr_data_mat)
+ov_expr_data_mat <- ov_expr_data_mat + epsilon
+ov_expr_data <- ov_expr_data_mat
+ov_expr_data[1,]
+View(ov_expr_data)
+View(ov_expr_data)
+num_genes = length(ov_expr_data[,1])
+num_samps = length(ov_expr_data[1,])
+View(ov_expr_data_mat)
+ov_expr_data <- as.data.frame(ov_expr_data)
+View(ov_expr_data)
+View(ov_expr_data_mat)
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+setwd('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.Library.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/common.R')
+data=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/data.mat");
+ov_expr_data_mat= (data$data)
+ov_expr_data_mat <- ov_expr_data_mat + epsilon
+ov_expr_data_mat <- log2(ov_expr_data_mat)
+View(ov_expr_data_mat)
+View(ov_expr_data_mat)
+View(ov_expr_data_mat)
+ov_expr_data <- ov_expr_data_mat
+num_genes = length(ov_expr_data[,1])
+num_samps = length(ov_expr_data[1,])
+ov_expr_data <- as.data.frame(ov_expr_data)
+#write it out as GCT file for ssGSEA algorithm use.
+line1_labels = paste("#1.2")
+line2_labels = cbind(num_genes, num_samps)
+gct_out <-  cbind(rownames(ov_expr_data),ov_expr_data)
+gct_out <-  cbind(rownames(ov_expr_data),gct_out)
+colnames(gct_out)[c(1,2)] = c("NAME", "Description")
+rownames(gct_out) = NULL
+outfilname_gct = "N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/INPUT1.gct"  ######cHANGE THIS TO THE PREP FILE FOR RUNNING GSEA
+write.table(line1_labels, file=outfilname_gct, sep="\t", row.names=F, col.names=F, quote=F, eol="\n")
+write.table(line2_labels, file=outfilname_gct, sep="\t", append= TRUE, row.names=F, col.names=F, quote=F, eol="\n")
+write.table(gct_out, file=outfilname_gct, sep="\t", row.names=F, col.names=T, quote=F, append= TRUE, eol="\n")
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/", input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+setwd('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.Library.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/common.R')
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/", input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/", input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/", input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+setwd('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.Library.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/common.R')
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(jardir  = "ssgseaprojection.jar",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG, GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG, GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "OUTPUT", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG, GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "OUTPUT.gct", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+rm(list=ls())
+require(marray)
+require(survival)
+require(stringr)
+require(gplots)
+require(marray)
+require(ConsensusClusterPlus)
+require(plyr)
+require(ggplot2)
+require(multtest)
+epsilon = 1e-05
+require(estimate)
+setwd('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/ssGSEAProjection.Library.R')
+source('N:/BrainTumors/LGG_GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/common.R')
+#ov_expr_data_mat = read.delim("/Projects/Pallavi/TCGA-GBMcombined_data.txt",sep="\t",header= T, check.names = F, stringsAsFactors = F)                          ##### INPUT YOUR LOG2 EXPRESSION DATA. 2 DIMENSIONAL MATRIX WITH SAMPLES AS COLUMNS AND GENES AS ROWS
+data=R.matlab::readMat("N:/BrainTumors/LGG_GBM/JournalPapers/treatment_response/genomic_analysis/data.mat");
+ov_expr_data_mat= (data$data)
+#ov_expr_data_mat <- ov_expr_data_mat[c(2:length(ov_expr_data_mat[,1])),]
+#rownames(ov_expr_data_mat) <- ov_expr_data_mat[,1]
+#ov_expr_data_mat <- ov_expr_data_mat[,c(2:length(ov_expr_data_mat[1,]))]
+#ov_expr_data_mat <- data.matrix(ov_expr_data_mat)
+ov_expr_data_mat <- ov_expr_data_mat + epsilon
+ov_expr_data_mat <- log2(ov_expr_data_mat)
+ov_expr_data <- ov_expr_data_mat
+num_genes = length(ov_expr_data[,1])
+num_samps = length(ov_expr_data[1,])
+ov_expr_data <- as.data.frame(ov_expr_data)
+#write it out as GCT file for ssGSEA algorithm use.
+line1_labels = paste("#1.2")
+line2_labels = cbind(num_genes, num_samps)
+gct_out <-  cbind(rownames(ov_expr_data),ov_expr_data)
+gct_out <-  cbind(rownames(ov_expr_data),gct_out)
+colnames(gct_out)[c(1,2)] = c("NAME", "Description")
+rownames(gct_out) = NULL
+outfilname_gct = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT2.gct"  ######cHANGE THIS TO THE PREP FILE FOR RUNNING GSEA
+write.table(line1_labels, file=outfilname_gct, sep="\t", row.names=F, col.names=F, quote=F, eol="\n")
+write.table(line2_labels, file=outfilname_gct, sep="\t", append= TRUE, row.names=F, col.names=F, quote=F, eol="\n")
+write.table(gct_out, file=outfilname_gct, sep="\t", row.names=F, col.names=T, quote=F, append= TRUE, eol="\n")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG, GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT.gct", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG, GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT.gct", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG, GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT.gct", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE.gmx")
+ssGSEA.project.dataset(javaexec = "ssgseaprojection.jar", jardir = "N:/BrainTumors/LGG, GBM/JournalPapers/Hypoxia/VinayVaradhan/ssGSEAProjection/",
+input.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/INPUT1.gct",
+output.ds = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/OUTPUT.gct", gene.sets.dbfile.list = "N:/BrainTumors/LGG_GBM/JournalPapers/Treatment_Response/genomic_analysis/SIGNATURE_2.gmx")
